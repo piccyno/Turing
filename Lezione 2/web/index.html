@@ -10,24 +10,41 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <body>
-        <div>TODO write content</div>
-        
+    <body>        
         <h1>Registrazione Esami Triennale & Magistrale</h1>
         <img src="img/unica_logo.jpg" title="Logo Unica"> 
         
         
         <form method="GET">
+            
         <!-- Nome, Cognome, matricola studente -->
+        <div>
         <label for="NomeStudente">Nome Studente</label>
         <input type="text" name="Nome studente" id="NomeStudente" />
         <label for="CognomeStudente">Cognome Studente</label>
         <input type="text" name="Cognome studente" id="CognomeStudente" />
         <label for="MatricolaStudente">Matricola Studente</label>
         <input type="text" name="Matricola studente" id="MatricolaStudente" />
+        </div>
+        
         <!-- Nome esame e voto -->
+        <div>
+        <label for="NomeEsame">Nome Esame</label>
+        <select size="3" name="NomeEsame" id="NomeEsame">
+                <option value="PR1">Programmazione 1</option>
+                <option value="AMM">Amministrazione di rete</option>
+                <option value="RC">Reti di Calcolatori</option>
+                <option value="EAI">Elaborazione di immagini</option>
+                <option value="FDI">Fondmenti di informatica</option>
+                <option value="CS">Computazione su Rete</option>
+        </select>
+        <label for="VotoEsame">Voto Esame</label>
+        <input type="range" min="18" max="31" name="VotoEsame" id="VotoEsame" />
         
+        </div>
         
+                
+            
         <!-- Descrizione -->
         
         
