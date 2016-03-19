@@ -6,11 +6,37 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Log-In su Dischi&Vinili</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Simone Picciau">
+        <meta name="keywords" content="login, musica, dischi, cd, vinili">
+        <meta name="description" content="Pagina di autenticazione">
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1 id="Login">Esegui l'accesso al sito</h1>
+        
+        <!-- menù di navigazione -->
+        <nav>
+            <ul>
+                <li><a href="descrizione.html">Descrizione del sito</a></li>
+                <li><a href="cliente.html">Cliente</a></li>
+                <li><a href="venditore.html">Venditore</a></li>
+                <li><a href="login.html">Esegui l'accesso</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Form di autenticazione -->
+        <form method="GET">
+            <div>
+                <label for="Username">Nome Utente: </label>
+                <input type="text" name="Nome utente" id="Username" />
+                <label for="Password">Password: </label>
+                <input type="password" name="Password" id="Password"
+                       value="password" />
+                <input type="submit" value="Login" />
+            </div>
+        </form>
+        
     </body>
 </html>
