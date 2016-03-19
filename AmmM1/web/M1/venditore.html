@@ -6,11 +6,41 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Pagina Venditore - Dischi&Vinili</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Simone Picciau">
+        <meta name="keywords" content="venditore, musica, dischi, cd, vinili">
+        <meta name="description" content="Aggiungi un prodotto in vendita">
     </head>
     <body>
-        <div>TODO write content</div>
+        <h1 id="PaginaVenditore">Pagina Venditore - Dischi&Vinili </h1>
+        
+        <!-- Navigazione -->
+        <nav>
+            <ul>
+                <li><a href="descrizione.html">Descrizione del sito</a></li>
+                <li><a href="login.html">Esegui l'accesso</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Form di inserimento prodotto -->
+        <form method="GET">
+           <div>
+               <label for="Titolo">Titolo del disco: </label>
+               <input type="text" name="Titolo disco" id="Titolo" />
+               <label for="UrlCopertina">Url della copertina: </label>
+               <input type="url" name="Url copertina" id="UrlCopertina"/>
+               <label for="Descrizione">Descrizione del disco: </label>
+               <textarea rows="4" cols="20" name="descrizione del disco"
+                         id="Descrizione">Inserisci la descrizione</textarea>
+               <label for="Prezzo">Prezzo del disco: </label>
+               <input type="number" name="prezzo del disco" id="Prezzo">
+               <label for="Quantità">Numero di dischi disponibili: </label>
+               <input type="number" name="quantità di dischi" id="Quantità">
+               <input type="submit" value="Inserisci prodotto" />
+           </div>
+        </form>
+        
     </body>
 </html>
