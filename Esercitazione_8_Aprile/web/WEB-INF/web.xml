@@ -12,7 +12,7 @@
     
     <welcome-file-list>
         <welcome-file>
-            SimpleRegistration.html
+            Login
         </welcome-file>
     </welcome-file-list>
 </web-app>
