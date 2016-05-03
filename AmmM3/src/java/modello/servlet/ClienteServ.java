@@ -79,7 +79,8 @@ public class ClienteServ extends HttpServlet {
             idDiscoAcq = Integer.parseInt(request.getParameter("idDiscoAcq"));
             double saldoCliente;
             saldoCliente = cliente.saldo.getSaldo();
-            if  (saldoCliente >= idDiscoAcq){
+            Disco disco = dischi.getDiscoById(idDiscoAcq);
+            if  (saldoCliente >= disco.getPrezzo()){
                 request.setAttribute("esito", true);
                 request.getRequestDispatcher("esitoAcq.jsp").forward(request, response);
             }else{
