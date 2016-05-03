@@ -36,10 +36,10 @@
             <div id="content">
                 <div id="form">
                     <c:if test="${esito==true}">
-                        <p>Il tuo acquisto è stato confermato</p>
+                        <p>Il tuo acquisto del disco "${disco.getTitolo()}" è stato confermato</p>
                     </c:if>
                     <c:if test="${esito==false}">
-                        <p>Il tuo acquisto non è stato confermato</p>
+                        <p>Il tuo acquisto di "${disco.getTitolo()}" non è stato confermato</p>
                         <p>Non hai abbastanza denaro!!!</p>
                     </c:if>    
                         
