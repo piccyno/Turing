@@ -1,0 +1,435 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 9-apr-2016, 16.45.01
+    Author     : Simone
+*/
+
+/* Stili delle Classi */
+a:link{
+    color: #BBBBBB;
+    text-shadow: 1px 1px 1px black;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #7979A6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 0px 0px 0px black;
+    color: #CCCCCC;
+    text-decoration: none;
+}
+
+
+.tabellaVendite{
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.intestazioneTabella{
+    background-color: #222222;
+    color: #EEEEEE;
+    font-style: italic;
+}
+
+.rigaPari{
+    background-color: #999999;
+}
+
+.rigaDispari{
+    background-color: #777777;
+}
+
+/* Misura dell'altezza della riga */
+.rigaDispari, .rigaPari{
+    height: 200px;
+    color: white;
+}
+
+/* Misure della larghezza delle colonne della tabella */
+.titolo{
+    width: 280px;
+}
+
+.copertina{
+    width: 170px;
+}
+
+.disponibilità{
+    width: 100px;
+}
+
+.prezzo{
+    width: 60px;
+}
+
+.carrello{
+    width: 90px;
+}
+
+
+/* Stili Globali */
+body{    
+    background-image: url(img/top_background.gif); /* sfumatura in alto pagina */
+    background-repeat: repeat-x;
+    background-color: #333333; /* sfondo per l'intera pagina */
+    font-family: Arial, Helvetica, sans-serif; /* tutto il sito usa lo stesso font */
+    color: #000000; /* colore font globale */
+}
+
+h1{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+h3{
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+/* tutti i punti di una lista sono visualizzati come quadrati */
+ul{
+    list-style-type: square;
+}
+
+/* solo i punti della sottolista non hanno bullet */
+ul.sottolista{
+    list-style-type: none;
+}
+
+/* elementi dei form */
+label::after, label::before{
+    content: '\A';
+    white-space: pre;
+}
+
+label{
+    font-size: 14px;
+}
+
+input, textarea{
+    font-size: 14px;
+    background-color: #333333;
+    color: white;
+}
+
+input:focus, textarea:focus{
+    background-color: cornflowerblue;
+}
+
+div#content ul{
+    list-style-type: none;
+}
+
+div#content li{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+
+/* Stili degli ID */
+
+/* L'ID "#pagina" contiente tutti gli elementi della pagina */
+#pagina{
+    
+}
+
+#header{
+    background-color: white;
+}
+
+#logo{
+    background-image: url(img/logo.jpg);
+    height: 150px;
+    width: 150px;
+    float: left;
+    margin-right: 30px;
+    margin-left: 7px;
+}
+
+#sidebar, #content, #footer{
+    background-color: white;
+}
+
+#content p{
+    font-size: 14px;
+    text-align: justify;
+}
+
+#footer p{
+    display: block; 
+    margin: auto;
+    text-align: center;
+    font-size: 10px;
+    display: block;
+}
+
+
+@media only screen and (min-width: 1024px) {
+    #pagina{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 950px;
+    }
+    
+    #header{
+        width: 950px;
+        height: 150px;
+        margin-bottom: 10px;
+    }
+    
+    #sidebar{
+        float: left;
+        width: 200px;
+    }
+    
+    #content{
+        margin-left: 230px;
+        width: 700px;
+    }
+    
+    #footer{
+        width: 930px;
+        height: 10px;
+        margin-top: 10px;
+    }
+    
+    #form{
+        margin: auto;
+        width: 560px;
+        border: 4px;
+        border-style: dotted;
+        padding: 25px;
+    }
+    
+    div#header h1{
+        height: 70px;
+        vertical-align: middle;
+        line-height: 100px;
+        color: #000000;
+        display: block;
+    }
+    
+    #header, #sidebar, #content, #footer{
+        box-shadow: 0 0 20px rgba(0,0,0,.6);
+        border-radius: 4px 4px 4px 4px;
+    }
+    
+    #sidebar, #content, #footer{
+        padding: 10px 10px 10px 10px;
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 1024px){
+    .tabellaVendite{
+        margin-left: 10px;
+    }
+    
+    h1{
+        font-size: 16px;
+    }
+    
+    h2, h3{
+        font-size: 14px;
+    }
+    
+    #logo{
+        background-image: url(../img/logo_pic.jpg);
+        height: 75px;
+        width: 75px;
+        float: left;
+        margin-right: 15px;
+        margin-left: 4px;
+    }
+    
+    #pagina{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    
+    #header{
+        width: 100%;
+        height: 77px;
+        margin-bottom: 10px;
+    }
+    
+    #sidebar{
+        width: 100%;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom:10px;
+    }
+    
+    #content{
+        margin-top: 10px;
+        height: auto;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom:10px;
+    }
+    
+    #footer{
+        width: 100%;
+        height: 30px;
+        margin-top: 10px;
+        vertical-align: middle;
+        line-height: 30px;
+        display: block;
+    }
+    
+    #form{
+        margin: auto;
+        width: 400px;
+        border: 4px;
+        border-style: dotted;
+        padding: 25px;
+    }
+    
+    div#header h1{
+        height: 35px;
+        vertical-align: middle;
+        line-height: 50px;
+        color: #000000;
+        display: block;
+    }
+    
+    #header, #sidebar, #content, #footer{
+        box-shadow: 0 0 20px rgba(0,0,0,.6);
+        border-radius: 4px 4px 4px 4px;
+    }
+    
+    div#content p, div#content h2, div#content h3, div#content h4{
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    #content p, #header p{
+        font-size: 12px;
+    }
+   
+    ul{
+        font-size: 14px;
+    }
+    
+    label{
+        font-size: 12px;
+    }
+
+    input, textarea{
+        font-size: 12px;
+    }
+}
+
+
+@media only screen and (max-width: 480px){
+    .tabellaVendite{
+        font-size: 10px;
+    }
+    
+    h1{
+        font-size: 14px;
+    }
+    
+    h2, h3{
+        font-size: 12px;
+    }
+    
+    body{
+        margin:0px;
+    }
+    
+    #logo{
+        background-image: url(../img/logo_pic.jpg);
+        height: 75px;
+        width: 75px;
+        float: left;
+        margin-right: 15px;
+        margin-left: 4px;
+    }
+    
+    #pagina{
+        width: 100%;
+    }
+    
+    #header{
+        margin-top: 0px;
+        width: 100%;
+        height: 75px;
+    }
+    
+    #sidebar{
+        width: 100%;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 5px;
+    }
+    
+    #content{
+        height: auto;
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-top: 5px;
+    }
+    
+    #footer{
+        width: 100%;
+        height: 30px;
+        margin-top: 5px;
+        vertical-align: middle;
+        line-height: 30px;
+        display: block;
+    }
+    
+    div#header h1{
+        height: 35px;
+        vertical-align: middle;
+        line-height: 50px;
+        color: #000000;
+        display: block;
+    }
+    
+    div#content p, div#content h2, div#content h3, div#content h4{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    #content p{
+        font-size: 12px;
+    }
+    
+    #header p{
+        font-size: 10px;
+    }
+   
+    ul{
+        font-size: 14px;
+    }
+    
+    label{
+        font-size: 12px;
+    }
+
+    input, textarea{
+        font-size: 12px;
+    }
+}
