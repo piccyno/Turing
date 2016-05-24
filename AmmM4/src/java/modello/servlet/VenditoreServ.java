@@ -37,7 +37,7 @@ public class VenditoreServ extends HttpServlet {
          * Se l'utente non è loggato visualizziamo un messaggio di errore
          */
         HttpSession session = request.getSession(false);
-        if ((session.getAttribute("loggedId")!="true")||(session.getAttribute("userType") == "cliente")){
+        if ((session.getAttribute("loggedIn")!="true")||(session.getAttribute("userType") == "cliente")){
                 request.getRequestDispatcher("errore.jsp").forward(request, response);
             }
         

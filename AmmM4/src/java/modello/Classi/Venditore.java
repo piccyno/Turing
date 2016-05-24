@@ -12,7 +12,8 @@ import java.util.ArrayList;
  */
 public class Venditore extends Utente {
     /* Attributi */
-    private ArrayList<Disco> dischiInVendita = new ArrayList<Disco>(); 
+    private ArrayList<Disco> dischiInVendita = new ArrayList<Disco>();
+    protected int feedback;
     
     /* Costruttore */
     public Venditore(){
@@ -33,5 +34,19 @@ public class Venditore extends Utente {
      */
     public void setDischiInVendita(ArrayList<Disco> inVendita) {
         this.dischiInVendita = inVendita;
+    }
+
+    /**
+     * @return the feedback
+     */
+    public int getFeedback() {
+        return feedback;
+    }
+
+    /**
+     * @param feedback the feedback to set
+     */
+    public void setFeedback(int feedback) {
+        this.feedback = feedback;
     }
 }

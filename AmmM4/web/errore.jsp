@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Simone Picciau">
         <meta name="keywords" content="login, musica, dischi, cd, vinili">
-        <meta name="description" content="Pagina di autenticazione">
+        <meta name="description" content="Errore di autenticazione">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
     </head>
     <body>

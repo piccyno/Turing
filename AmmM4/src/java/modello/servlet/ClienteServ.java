@@ -40,7 +40,7 @@ public class ClienteServ extends HttpServlet {
          * Se l'utente non è loggato visualizziamo un messaggio di errore
          */
         HttpSession session = request.getSession(false);
-        if ((session.getAttribute("loggedId")!="true")||(session.getAttribute("userType") == "venditore")){
+        if ((session.getAttribute("loggedIn")!="true")||(session.getAttribute("userType") == "venditore")){
                 request.getRequestDispatcher("errore.jsp").forward(request, response);
             }
         
@@ -52,7 +52,6 @@ public class ClienteServ extends HttpServlet {
          * In caso di acquisto di un disco
          */
         Integer idDisco;
-        //idDisco = 3;
         if (request.getParameter("idDisco")!=null && !(request.getParameter("idDisco").isEmpty())){
             idDisco = Integer.parseInt(request.getParameter("idDisco"));
             if (idDisco>0){
@@ -67,10 +66,9 @@ public class ClienteServ extends HttpServlet {
         
         /**
          * In caso di conferma di acquisto di un disco verifico la presenza
-         * di sufficiente denano nel conto del cliente e procedo alla visualizzazione
+         * di sufficiente denaro nel conto del cliente e procedo alla visualizzazione
          * della pagina di conferma
          */
-        
         
         if(request.getParameter("Acquisto") != null){
             Cliente cliente = (Cliente)session.getAttribute("cliente");

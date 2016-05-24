@@ -63,7 +63,7 @@ public class Login extends HttpServlet {
          * Se l'utente già loggato clicca nuovamente Login viene riportato
          * nella pagina di sua competenza.
          */
-        if (session.getAttribute("loggedId")=="true"){
+        if (session.getAttribute("loggedIn")=="true"){
             if (session.getAttribute("userType") == "venditore"){
                 request.getRequestDispatcher("venditore.jsp").forward(request, response);
             }else{
@@ -82,14 +82,12 @@ public class Login extends HttpServlet {
         if(request.getParameter("Login") != null){
             String username = request.getParameter("Username");
             String password = request.getParameter("Password");
-            
-            ArrayList<Utente> listaUtenti = UtentiFactory.getInstance().getUtentiList();
-            if (username != null && password != null)
-                for(Utente u : listaUtenti)
-                    if(u.getUsername().equals(username) && u.getPassword().equals(password)){
-                        session.setAttribute("loggedId", "true");
-                        session.setAttribute("id", u.getId());
-                        if(u instanceof Venditore){
+            if (username != null && password != null){
+                Utente u = UtentiFactory.getInstance().getUtente(username, password);
+                if(u != null){
+                    session.setAttribute("loggedIn", "true");
+                    session.setAttribute("id", u.getId());
+                    if(u instanceof Venditore){
                             request.setAttribute("venditore", u);
                             session.setAttribute("venditore", u);
                             session.setAttribute("userType", "venditore");
@@ -100,8 +98,9 @@ public class Login extends HttpServlet {
                             session.setAttribute("userType", "cliente");
                             request.getRequestDispatcher("cliente.html").forward(request, response);
                         }
-                    }
-            request.setAttribute("loggedId", "false");
+                }
+            } 
+            request.setAttribute("loggedIn", "false");
         }
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }

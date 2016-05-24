@@ -109,7 +109,7 @@ public abstract class Utente {
     /**
      * @param saldo the saldo to set
      */
-    public void setSaldo(Saldo saldo) {
-        this.saldo = saldo;
+    public void setSaldo(float saldo) {
+        this.saldo.setSaldo(saldo);
     }
 }
