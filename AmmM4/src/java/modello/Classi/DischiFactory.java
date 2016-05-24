@@ -5,6 +5,12 @@
  */
 package modello.Classi;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
@@ -32,64 +38,7 @@ public class DischiFactory {
     
     /* Costruttore */
     private DischiFactory() {
-        /**
-         * Creo una lista di dischi in vendita
-         */
-        //Dischi
-        //Disco_1
-        Disco disco_1 = new Disco();
-        disco_1.setTitolo("Queen - Gratest Hits II");
-        disco_1.setId(001);
-        disco_1.setDescrizione("Compact Disc - Ottimo stato");
-        disco_1.setDisponibilita(4);
-        disco_1.setCopertina("img/copertina001.jpg");
-        disco_1.setPrezzo(10);
-        disco_1.setIdVenditore(0001);
-        listaDischi.add(disco_1);
         
-        //Disco_2
-        Disco disco_2 = new Disco();
-        disco_2.setTitolo("Rolling Stones - Grrr");
-        disco_2.setId(002);
-        disco_2.setDescrizione("Compact Disc - Ottimo stato");
-        disco_2.setDisponibilita(2);
-        disco_2.setCopertina("img/copertina002.jpg");
-        disco_2.setPrezzo(5);
-        disco_2.setIdVenditore(0001);
-        listaDischi.add(disco_2);
-        
-        //Disco_3
-        Disco disco_3 = new Disco();
-        disco_3.setTitolo("Vasco Rossi - Sono Innocente");
-        disco_3.setId(003);
-        disco_3.setDescrizione("Compact Disc - Ottimo stato");
-        disco_3.setDisponibilita(5);
-        disco_3.setCopertina("img/copertina003.jpg");
-        disco_3.setPrezzo(10);
-        disco_3.setIdVenditore(0001);
-        listaDischi.add(disco_3);
-        
-        //Disco_4
-        Disco disco_4 = new Disco();
-        disco_4.setTitolo("Daft Punk - Discovery");
-        disco_4.setId(004);
-        disco_4.setDescrizione("Compact Disc - Ottimo stato");
-        disco_4.setDisponibilita(1);
-        disco_4.setCopertina("img/copertina004.jpg");
-        disco_4.setPrezzo(8);
-        disco_4.setIdVenditore(0001);
-        listaDischi.add(disco_4);
-        
-        //Disco_5
-        Disco disco_5 = new Disco();
-        disco_5.setTitolo("Depeche Mode - Delta Machine");
-        disco_5.setId(005);
-        disco_5.setDescrizione("Compact Disc - Ottimo stato");
-        disco_5.setDisponibilita(3);
-        disco_5.setCopertina("img/copertina005.jpg");
-        disco_5.setPrezzo(8);
-        disco_5.setIdVenditore(0001);
-        listaDischi.add(disco_5);
     }
     
     /* Metodi */
@@ -100,9 +49,38 @@ public class DischiFactory {
      * @return Disco
      */
     public Disco getDiscoById(int id){
-        for(Disco d : listaDischi){
-            if(d.id == id)
-                return d;
+        try{
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "simone", "amm");
+            // Query
+            String query = "select * from disco "
+            + "where id = ?";
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // Si associano i valori
+            stmt.setInt(1, id);
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+            
+             // ciclo sulle righe restituite
+            if(res.next()){
+                Disco current = new Disco();
+                current.setId(res.getInt("id"));
+                current.setTitolo(res.getString("titolo"));
+                current.setDescrizione(res.getString("descrizione"));
+                current.setCopertina(res.getString("copertina"));
+                current.setDisponibilita(res.getInt("disponibilità"));
+                current.setPrezzo(res.getFloat("prezzo"));
+                current.setIdVenditore(res.getInt("venditore_id"));
+                stmt.close();
+                conn.close();
+                return current;
+            }   
+            stmt.close();
+            conn.close();
+        } 
+        catch (SQLException e){
+            e.printStackTrace();
         }
         return null;
     }
@@ -112,6 +90,33 @@ public class DischiFactory {
      * @return 
      */
     public ArrayList<Disco> getDischiList(){
+        ArrayList<Disco> listaDischi = new ArrayList<Disco>();
+        try{
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "simone", "amm");
+            Statement stmt = conn.createStatement();
+            String query = "select * from "
+            + "disco";
+            ResultSet set = stmt.executeQuery(query);
+            
+             // ciclo sulle righe restituite
+            while(set.next()){
+                Disco current = new Disco();
+                current.setId(set.getInt("id"));
+                current.setTitolo(set.getString("titolo"));
+                current.setDescrizione(set.getString("descrizione"));
+                current.setCopertina(set.getString("copertina"));
+                current.setDisponibilita(set.getInt("disponibilità"));
+                current.setPrezzo(set.getFloat("prezzo"));
+                current.setIdVenditore(set.getInt("venditore_id"));
+                listaDischi.add(current);
+            } 
+            stmt.close();
+            conn.close();
+        } 
+        catch (SQLException e){
+            e.printStackTrace();
+        }
         return listaDischi;
     }
     

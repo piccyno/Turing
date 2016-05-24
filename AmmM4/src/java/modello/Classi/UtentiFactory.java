@@ -38,6 +38,12 @@ public class UtentiFactory {
     }
     
     /* Metodi */
+    
+    /**
+     * Metodo che restituisce l'utente date le credenziali
+     * @param username password
+     * @return 
+     */
     public Utente getUtente(String username, String password)
     {
         try
