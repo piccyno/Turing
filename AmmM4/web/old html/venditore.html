@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Pagina Venditore - Dischi&Vinili</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Simone Picciau">
+        <meta name="keywords" content="venditore, musica, dischi, cd, vinili">
+        <meta name="description" content="Aggiungi un prodotto in vendita">
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    </head>
+    <body>
+        <div id="pagina">
+            <header>
+                <div id="header">
+                    <div id="logo"></div>
+                    <h1>Dischi&Vinili</h1>
+                    <p>Pagina venditore</p>
+                </div>
+            </header>
+
+            
+            <div id="sidebar">
+                <!-- Navigazione -->
+                <nav>
+                    <ul>
+                        <li><a href="descrizione.html">Descrizione del sito</a></li>
+                        <li><a href="login.html">Esegui l'accesso</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div id="content">
+                <!-- Form di inserimento prodotto -->
+                <div id="form">
+                    <form method="GET">
+                        <ul>
+                            <li>
+                                <label for="Titolo">Titolo del disco: </label>
+                                <input type="text" name="Titolo disco" id="Titolo" />
+                            </li>
+                            <li>
+                                <label for="UrlCopertina">Url della copertina: </label>
+                                <input type="url" name="Url copertina" id="UrlCopertina"/>
+                            </li>
+                            <li>
+                                <label for="Descrizione">Descrizione del disco: </label>
+                                <textarea rows="4" cols="20" name="descrizione del disco"
+                                          id="Descrizione">Inserisci la descrizione</textarea>
+                            </li>
+                            <li>
+                                <label for="Prezzo">Prezzo del disco: </label>
+                                <input type="number" name="prezzo del disco" id="Prezzo">
+                            </li>
+                            <li>
+                                <label for="Quantità">Numero di dischi disponibili: </label>
+                                <input type="number" name="quantità di dischi" id="Quantità">
+                            </li>
+                            <li>
+                                <input type="submit" value="Inserisci prodotto" />
+                                <input type="reset" value="Reset"/>
+                            </li>                            
+                        </ul>
+                    </form>
+                </div>
+            </div>
+            <div style="clear: both; width: 0px; height: 0px;"></div>
+            <footer>
+                <div id="footer">
+                    <p>Copyright © Simone Picciau matr.65052</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

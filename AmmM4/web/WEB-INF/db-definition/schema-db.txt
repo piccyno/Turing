@@ -1,0 +1,17 @@
+CLIENTE (Id*, Nome, Cognome, Username, Password, Saldo)
+VENDITORE (Id*, Nome, Cognome, Username, Password, Saldo, Feedback)
+DISCO (Id*, Titolo, Descrizione, Copertina, Disponibilità, Prezzo, 
+    Id_Venditore**)
+
+
+-------Note--------
+Abbiamo una relazione UNO A MOLTI da VENDITORE a DISCO (un venditore può avere
+in vendita più di un disco) attraverso la chiave esterna Id_Venditore nella
+tabella DISCO che contiene l'Id del VENDITORE che ha messo in vendita il disco.
+-------------------
+
+
+-----Leggenda------
+*  Chiave Primaria
+** Chiave Esterna
+-------------------
