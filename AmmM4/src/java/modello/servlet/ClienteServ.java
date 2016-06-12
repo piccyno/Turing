@@ -7,6 +7,8 @@ package modello.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +25,7 @@ import modello.Classi.Disco;
  */
 @WebServlet(name = "ClienteServ", urlPatterns = {"/cliente.html"})
 public class ClienteServ extends HttpServlet {
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -79,12 +81,23 @@ public class ClienteServ extends HttpServlet {
             saldoCliente = cliente.saldo.getSaldo();
             Disco disco = dischi.getDiscoById(idDiscoAcq);
             if  (saldoCliente >= disco.getPrezzo()){
-                request.setAttribute("esito", true);
-                request.setAttribute("disco", dischi.getDiscoById(idDiscoAcq));
-                request.getRequestDispatcher("esitoAcq.jsp").forward(request, response);
+                boolean esitoTransazione = dischi.transazione(idDiscoAcq, cliente.getId(), 
+                    disco.getIdVenditore(), disco.getPrezzo());
+                if (esitoTransazione) {
+                    cliente.sottrai(disco.getPrezzo());
+                    if (disco.getDisponibilita() == 1)
+                        dischi.eliminaDisco(idDiscoAcq);
+                    request.setAttribute("esito", true);
+                    request.setAttribute("disco", disco);
+                    request.getRequestDispatcher("esitoAcq.jsp").forward(request, response);
+                }else{
+                    request.setAttribute("esito", false);
+                    request.setAttribute("disco", disco);
+                    request.getRequestDispatcher("esitoAcq.jsp").forward(request, response);
+                }
             }else{
                 request.setAttribute("esito", false);
-                request.setAttribute("disco", dischi.getDiscoById(idDiscoAcq));
+                request.setAttribute("disco", disco);
                 request.getRequestDispatcher("esitoAcq.jsp").forward(request, response);
             }
         }
