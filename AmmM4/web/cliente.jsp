@@ -16,8 +16,10 @@
         <meta name="keywords" content="cliente,  musica, dischi, cd, vinili">
         <meta name="description" content="Prodotti in vendita">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
-        <script type="text/javascript" src="js/filtraDischi.js"></script>
         <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+        <script type="text/javascript" src="js/filtraDischi.js"></script>
+        
+        
         
     </head>
     <body>

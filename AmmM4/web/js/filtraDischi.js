@@ -17,7 +17,7 @@ $(document).ready(function () {
         });
     });
         
-    function filtraDischi(listaDischi,idCliente){
+    function filtraDischi(listaDischi){
         $("#tabellaVendite").show();
         $("#nessunDisco").remove();
         //Se non ci sono risultati nascondo la tabella e visualizzo messaggio
