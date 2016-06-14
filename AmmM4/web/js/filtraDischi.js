@@ -12,7 +12,7 @@ $(document).ready(function () {
                 filtraDischi(data);
             },
             error : function(data, state){
-                alert("Error!!!");
+                alert("Erroreee!!!");
             }
         });
     });

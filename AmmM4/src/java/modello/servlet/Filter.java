@@ -53,19 +53,18 @@ public class Filter extends HttpServlet {
                 String testoDigitato;
                 testoDigitato = ((String)request.getParameter("value"));
                 if (!testoDigitato.equals("")){
-                    //System.out.println(testoDigitato);
                     listaDischi = DischiFactory.getInstance().getDischiListFiltro(testoDigitato);
                 }else
                     listaDischi = DischiFactory.getInstance().getDischiList();
-                request.setAttribute("listaDischi", listaDischi);
-                //request.setAttribute("idUtente", session.getAttribute("idUtente"));
+                request.setAttribute("dischi", listaDischi);
+                request.setAttribute("idUtente", session.getAttribute("idUtente"));
 
                 // Json
                 response.setContentType("application/json");
                 response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT");
                 response.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
 
-                // Genero il json con una jsp
+                // richiamo filtro.jsp per creare una json
                 request.getRequestDispatcher("filtro.jsp").forward(request, response);
             }
         }

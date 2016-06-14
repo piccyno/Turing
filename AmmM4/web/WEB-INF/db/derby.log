@@ -1,7 +1,7 @@
-Tue Jun 14 17:12:30 CEST 2016 : Server di rete Apache Derby: 10.11.1.2 - (1629631) avviato e pronto ad accettare connessioni sulla porta 1527
+Wed Jun 15 00:09:12 CEST 2016 : Server di rete Apache Derby: 10.11.1.2 - (1629631) avviato e pronto ad accettare connessioni sulla porta 1527
 ----------------------------------------------------------------
-Tue Jun 14 17:12:31 CEST 2016:
-Avvio della versione di Derby The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): istanza a816c00e-0155-4f78-7a1b-ffffdf82b79e
+Wed Jun 15 00:09:13 CEST 2016:
+Avvio della versione di Derby The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): istanza a816c00e-0155-50f5-fb31-ffffdf82b79e
 sulla directory di database D:\Simone\Università\AMM\NetBeans\Turing\AmmM4\web\WEB-INF\db\ammdb con caricatore classi sun.misc.Launcher$AppClassLoader@5e2de80c 
 Caricato da file:/C:/Program%20Files/Java/jdk1.8.0_73/db/lib/derby.jar
 java.vendor=Oracle Corporation

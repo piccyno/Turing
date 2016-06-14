@@ -136,7 +136,7 @@ public class DischiFactory {
             stmt.setString(2, filtro);
             stmt.setString(3, filtro);            
             stmt.setString(4, filtro);
-            ResultSet set = stmt.executeQuery(query);
+            ResultSet set = stmt.executeQuery();
             // ciclo sulle righe restituite
             while(set.next()){
                 Disco current = new Disco();
