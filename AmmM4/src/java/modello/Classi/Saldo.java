@@ -16,6 +16,8 @@ public class Saldo {
      * @return the saldo
      */
     public double getSaldo() {
+        saldo = Math.floor(saldo*100);
+        saldo = saldo/100;
         return saldo;
     }
 

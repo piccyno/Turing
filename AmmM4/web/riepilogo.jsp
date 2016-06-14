@@ -31,19 +31,35 @@
                     </ul>
                 </nav>
             </div>
-
             <div id="content">
-                
-                <div id="form">
-                    <h1>Riepilogo informazioni:</h1>
-                    <p>
-                        <h2>Titolo:</h2> ${titolo}
-                        <h2>Url copertina:</h2> ${urlcopertina}
-                        <h2>Descrizione:</h2> ${descrizione}
-                        <h2>Prezzo:</h2> ${prezzo}
-                        <h2>Quantità:</h2> ${quantita}
-                    </p>
-                </div>
+                <c:if test="${inserito==true}">
+                        <p>Il disco è stato inserito!</p>
+                        <a href="venditore.html">Torna alla pagina venditore</a>
+                </c:if>
+                <c:if test="${inserito==false}">
+                    <div id="form">
+                        <form method="POST" action="venditore.html">
+                            <h1>Riepilogo informazioni:</h1>
+                            <p>
+                                <h2>Titolo:</h2> ${titolo}
+                                <h2>Url copertina:</h2> ${urlcopertina}
+                                <h2>Descrizione:</h2> ${descrizione}
+                                <h2>Prezzo:</h2> ${prezzo}
+                                <h2>Quantità:</h2> ${quantita}
+                                <h3>Vuoi procedere?</h3>
+                                <div id="inserisci">
+                                    <input type="hidden" name="Titolo" value="${titolo}">
+                                    <input type="hidden" name="UrlCopertina" value="${urlcopertina}">
+                                    <input type="hidden" name="Descrizione" value="${descrizione}">
+                                    <input type="hidden" name="Prezzo" value="${prezzo}">
+                                    <input type="hidden" name="Quantita" value="${quantita}">
+                                    <button type="submit" name="Inserisci" value=true>Conferma</button>
+                                    <button type="submit" name="Inserisci" value=false>No</button>
+                                </div>
+                            </p>
+                        </form>
+                    </div>
+                </c:if>
             </div>
             <jsp:include page="footer.jsp" /> 
         </div>

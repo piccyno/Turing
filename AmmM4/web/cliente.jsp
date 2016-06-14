@@ -16,6 +16,9 @@
         <meta name="keywords" content="cliente,  musica, dischi, cd, vinili">
         <meta name="description" content="Prodotti in vendita">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        <script type="text/javascript" src="js/filtraDischi.js"></script>
+        <script type="text/javascript" src="js/jquery-2.2.4.js"></script>
+        
     </head>
     <body>
         <div id="pagina">
@@ -38,7 +41,13 @@
             </div>
 
             <div id="content">
+                <h1>Benvenuto ${cliente.getNome()} ${cliente.getCognome()}</h1> 
+                <h2>Cliente Id:${cliente.getId()} - Nickname: ${cliente.getUsername()}</h2>
+                <h3>Saldo: ${cliente.getSaldo()}</h3>
+                <h2>Dischi in vendita:</h2>
             <!-- Oggetti in vendita -->
+                <label for="filtra" id="filtra_label">Cerca</label>
+                <input type="text" id="filtra" name="filtra">
                 <table class="tabellaVendite">
                     <tr class="intestazioneTabella">
                         <th>Titolo</th>
@@ -54,7 +63,7 @@
                                      alt="${disco.getTitolo()}" width="180" height="180"></td>
                             <td class="disponibilità">${disco.getDisponibilita()}</td>
                             <td class="prezzo">${disco.getPrezzo()}</td>
-                            <td class="carrello"><a href="cliente.html?idDisco=${disco.getId()}">Aggiungi</a></td>                    
+                            <td class="carrello"><a href="cliente.html?idDisco=${disco.getId()}">Acquista</a></td>                    
                         </tr>
                     </c:forEach>
                 </table>

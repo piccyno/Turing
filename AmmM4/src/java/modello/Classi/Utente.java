@@ -102,8 +102,8 @@ public abstract class Utente {
     /**
      * @return the saldo
      */
-    public Saldo getSaldo() {
-        return saldo;
+    public double getSaldo() {
+        return saldo.getSaldo();
     }
 
     /**
@@ -111,5 +111,19 @@ public abstract class Utente {
      */
     public void setSaldo(float saldo) {
         this.saldo.setSaldo(saldo);
+    }
+    
+    /**
+     * @return the saldo
+     */
+    public boolean aggiungi(double soldi) {
+        return saldo.aggiungi(soldi);
+    }
+
+    /**
+     * @param saldo the saldo to set
+     */
+    public boolean sottrai(double soldi) {
+        return saldo.sottrai(soldi);
     }
 }

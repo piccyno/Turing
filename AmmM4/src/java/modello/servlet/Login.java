@@ -65,7 +65,7 @@ public class Login extends HttpServlet {
          */
         if (session.getAttribute("loggedIn")=="true"){
             if (session.getAttribute("userType") == "venditore"){
-                request.getRequestDispatcher("venditore.jsp").forward(request, response);
+                request.getRequestDispatcher("venditore.html").forward(request, response);
             }else{
                 DischiFactory factory = DischiFactory.getInstance();
                 ArrayList<Disco> listaDischi = factory.getDischiList();
@@ -86,7 +86,7 @@ public class Login extends HttpServlet {
                 Utente u = UtentiFactory.getInstance().getUtente(username, password);
                 if(u != null){
                     session.setAttribute("loggedIn", "true");
-                    session.setAttribute("id", u.getId());
+                    session.setAttribute("idUtente", u.getId());
                     if(u instanceof Venditore){
                             request.setAttribute("venditore", u);
                             session.setAttribute("venditore", u);

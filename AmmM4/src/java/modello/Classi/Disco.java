@@ -13,7 +13,7 @@ public class Disco {
     /* Attributi */
     int id;
     private int idVenditore;
-    private float prezzo;
+    private double prezzo;
     private int disponibilita;
     private String titolo;
     private String descrizione;
@@ -39,14 +39,14 @@ public class Disco {
     /**
      * @return the prezzo
      */
-    public float getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 
     /**
      * @param prezzo the prezzo to set
      */
-    public void setPrezzo(float prezzo) {
+    public void setPrezzo(double prezzo) {
         this.prezzo = prezzo;
     }
 

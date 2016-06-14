@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Simone Picciau">
         <meta name="keywords" content="login, musica, dischi, cd, vinili">
-        <meta name="description" content="Pagina di autenticazione">
+        <meta name="description" content="Pagina di acquisto">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
     </head>
     <body>
@@ -40,9 +40,9 @@
                     </c:if>
                     <c:if test="${esito==false}">
                         <p>Il tuo acquisto di "${disco.getTitolo()}" non è stato confermato</p>
-                        <p>Non hai abbastanza denaro!!!</p>
+                        <p>Verifica il tuo credito oppure riprova più tardi.</p>
                     </c:if>    
-                        
+                    <a href="cliente.html">Torna alla lista dei dischi</a>    
                 </div>
             </div>
             <jsp:include page="footer.jsp" /> 

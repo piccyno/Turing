@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,6 +39,11 @@
             </div>
             
             <div id="content">
+                <h1>Benvenuto ${venditore.getNome()} ${venditore.getCognome()}</h1> 
+                <h2>Vendor Id:${venditore.getId()} - Nickname: ${venditore.getUsername()}</h2>
+                <h3>Feedback: ${venditore.getFeedback()}</h3>
+                <h3>Saldo: ${venditore.getSaldo()}</h3>
+                <h2>Inserisci un nuovo disco in vendita</h2>
                 <!-- Form di inserimento prodotto -->
                 <div id="form">
                     <form method="POST" action="venditore.html">
@@ -48,7 +54,7 @@
                             </li>
                             <li>
                                 <label for="UrlCopertina">Url della copertina: </label>
-                                <input type="url" name="UrlCopertina" id="UrlCopertina"/>
+                                <input type="text" name="UrlCopertina" id="UrlCopertina"/>
                             </li>
                             <li>
                                 <label for="Descrizione">Descrizione del disco: </label>
@@ -70,6 +76,32 @@
                         </ul>
                     </form>
                 </div>
+                <h2>Oggetti in vendita</h2>
+                    <c:if test="${numDischi == 0}">
+                        <h2>Non hai dischi in vendita!</h2>
+                    </c:if>
+                    <c:if test="${numDischi > 0}">
+                        <table class="tabellaVendite">
+                            <tr class="intestazioneTabella">
+                                <th>Titolo</th>
+                                <th>Copertina</th>
+                                <th>Disponibilità</th>
+                                <th>Prezzo</th>
+                                <th>Modifica</th>
+                            </tr>
+                            <c:forEach var="disco" items="${dischi}">
+                                <tr class="rigaDispari">
+                                    <td class="titolo">${disco.getTitolo()}</td>
+                                    <td class="copertina"><img src="${disco.getCopertina()}" title="${disco.getTitolo()}" 
+                                             alt="${disco.getTitolo()}" width="180" height="180"></td>
+                                    <td class="disponibilità">${disco.getDisponibilita()}</td>
+                                    <td class="prezzo">${disco.getPrezzo()}</td>
+                                    <td class="elimina"><a href="venditore.html?idDiscoToDelete=${disco.getId()}">Elimina</a>
+                                     / <a href="venditore.html?idDiscoToChange=${disco.getId()}">Modifica</a></td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </c:if>
             </div>
             <jsp:include page="footer.jsp" /> 
         </div>
