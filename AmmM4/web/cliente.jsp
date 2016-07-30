@@ -50,7 +50,7 @@
             <!-- Oggetti in vendita -->
                 <label for="filtra" id="filtra_label">Cerca</label>
                 <input type="text" id="filtra" name="filtra">
-                <table class="tabellaVendite">
+                <table class="tabellaVendite" id="tabellaVendite">
                     <tr class="intestazioneTabella">
                         <th>Titolo</th>
                         <th>Copertina</th>

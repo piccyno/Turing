@@ -10,10 +10,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function(data, state){
                 filtraDischi(data);
-            },
-            error : function(data, state){
-                alert("Erroreee!!!");
             }
+            
         });
     });
         
@@ -28,16 +26,17 @@ $(document).ready(function () {
             var testo = document.createTextNode("Nessun disco trovato");
             noDischi.appendChild(testo);
             noDischi.className = "error";
-            $('#page').append(noDischi);                
+            $('#content').append(noDischi);                
         }
         $('#tabellaVendite tr').slice(1).remove();
         for(var i=0; i<listaDischi.length; i++) {
             //Inizializzo la riga con l'elemento tr
             var riga = document.createElement("tr");
+            riga.setAttribute("class", "rigaDispari");
             //Recupero i dati
             var titolo = listaDischi[i].titolo;
             var copertina = listaDischi[i].copertina;
-            var quantita = listaDischi[i].quantita;
+            var quantita = listaDischi[i].disponibilita;
             var prezzo = listaDischi[i].prezzo;
             var id = listaDischi[i].id;
             //Titolo

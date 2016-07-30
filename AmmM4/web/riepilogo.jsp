@@ -32,6 +32,10 @@
                 </nav>
             </div>
             <div id="content">
+                <c:if test="${error==true}">
+                        <p>Il disco non è stato inserito perché non hai inserito un titolo!</p>
+                        <a href="venditore.html">Torna alla pagina venditore</a>
+                </c:if>
                 <c:if test="${inserito==true}">
                         <p>Il disco è stato inserito!</p>
                         <a href="venditore.html">Torna alla pagina venditore</a>

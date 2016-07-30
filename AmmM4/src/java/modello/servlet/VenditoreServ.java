@@ -134,13 +134,21 @@ public class VenditoreServ extends HttpServlet {
          * Ricaviamo i valori inseriti nella form per poi scriverli nel riepilogo
          */
         if(request.getParameter("Insert") != null){
-            request.setAttribute("titolo", request.getParameter("Titolo"));
-            request.setAttribute("urlcopertina", request.getParameter("UrlCopertina"));
-            request.setAttribute("descrizione", request.getParameter("Descrizione"));
-            request.setAttribute("prezzo", request.getParameter("Prezzo"));
-            request.setAttribute("quantita", request.getParameter("Quantita"));
-            request.setAttribute("inserito", false);
-            request.getRequestDispatcher("riepilogo.jsp").forward(request, response);
+            String titolo;
+            titolo = request.getParameter("Titolo");
+            if (titolo.equals("")) {
+                request.setAttribute("error", true);
+                request.getRequestDispatcher("riepilogo.jsp").forward(request, response);
+            }else{
+                request.setAttribute("error", false);
+                request.setAttribute("titolo", request.getParameter("Titolo"));
+                request.setAttribute("urlcopertina", request.getParameter("UrlCopertina"));
+                request.setAttribute("descrizione", request.getParameter("Descrizione"));
+                request.setAttribute("prezzo", request.getParameter("Prezzo"));
+                request.setAttribute("quantita", request.getParameter("Quantita"));
+                request.setAttribute("inserito", false);
+                request.getRequestDispatcher("riepilogo.jsp").forward(request, response);
+            }
         }
         /**
          * Se abbiamo premuto il tasto di conferma inserimento
